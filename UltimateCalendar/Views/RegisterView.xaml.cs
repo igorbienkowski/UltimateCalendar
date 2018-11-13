@@ -12,21 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Configuration;
-using UltimateCalendar.ViewModels;
 
-namespace UltimateCalendar
+namespace UltimateCalendar.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for RegisterView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RegisterView : UserControl
     {
-        public MainWindow()
+        public RegisterView()
         {
             InitializeComponent();
-            DataContext = new LogInViewModel();
-            //string myConnectionString = ConfigurationManager.ConnectionStrings["localDB"].ConnectionString;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
