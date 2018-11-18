@@ -21,22 +21,14 @@ namespace UltimateCalendar.Views
     /// </summary>
     public partial class LogInView : UserControl
     {
-        string BlackForeground = "#FF000000" ;
-        string OriginalForeground = "#FF0B36F5";
         public LogInView()
         {
             InitializeComponent();
         }
 
-        private void TextBlock_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void TBSignUp_Click(object sender, RoutedEventArgs e)
         {
-            TBSignUp.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString(OriginalForeground));
             Application.Current.MainWindow.DataContext = new RegisterView();
-        }
-
-        private void TextBlock_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            TBSignUp.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString(BlackForeground));
         }
     }
 }

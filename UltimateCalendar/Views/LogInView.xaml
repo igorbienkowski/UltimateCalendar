@@ -7,17 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Column="1" Grid.Row="1">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="250">
                 <StackPanel Width="125">
                     <TextBlock Text="Email:" Margin="5,0,5,0" Width="auto"/>
@@ -27,16 +17,14 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBox Margin="5,0,5,0" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <PasswordBox Margin="0,0,0,5" HorizontalAlignment="Center" Height="23" VerticalAlignment="Top" Width="120"/>
+                <TextBox Margin="5,0,5,0" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <PasswordBox Margin="0,0,0,5" HorizontalAlignment="Center" Height="23" VerticalAlignment="Top" Width="120"/>
             </StackPanel>
             <Button Content="Log In" Margin="0,0,0,5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75"/>
         </StackPanel>
-        <Grid Grid.Column="1" Grid.Row="1">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBlock Text="don't have account yet ?" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5"/>
-            <TextBlock Name="TBSignUp" Text="Sign Up" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" PreviewMouseLeftButtonDown="TextBlock_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="TextBlock_PreviewMouseLeftButtonUp" Foreground="#FF0B36F5"/>
-            </StackPanel>
-        </Grid>
+            <Button Name="TBSignUp" Content="Sign Up" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,2,0,2" Foreground="#FF0B36F5" BorderBrush="{x:Null}" Background="{x:Null}" Click="TBSignUp_Click"/>
+        </StackPanel>
     </Grid>
 </UserControl>

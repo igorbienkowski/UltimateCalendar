@@ -7,7 +7,7 @@
         xmlns:Views="clr-namespace:UltimateCalendar.Views" x:Class="UltimateCalendar.MainWindow"
         xmlns:ViewModels="clr-namespace:UltimateCalendar.ViewModels"
         mc:Ignorable="d"
-        Title="Ultimate Calendar" Height="450" Width="800">
+        Title="Ultimate Calendar" Height="450" Width="800" MinHeight="150" MinWidth="300">
     <Window.Resources>
         <DataTemplate x:Name="LogInViewTemplate" DataType="{x:Type ViewModels:LogInViewModel}">
             <Views:LogInView DataContext="{Binding}"/>

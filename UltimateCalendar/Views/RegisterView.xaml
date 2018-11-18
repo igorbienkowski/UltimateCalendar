@@ -8,19 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="3">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
@@ -35,7 +23,7 @@
                         <TextBlock HorizontalAlignment="Right" Text="Password:" Margin="6" Width="auto"/>
                         <TextBlock HorizontalAlignment="Right" Text="Repeat Password:" Margin="6" Width="auto"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="1" HorizontalAlignment="Stretch">
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Stretch" MinWidth="100" MaxWidth="400">
                         <TextBox HorizontalAlignment="Stretch" Margin="5" />
                         <TextBox HorizontalAlignment="Stretch" Margin="5" />
                         <TextBox HorizontalAlignment="Stretch" Margin="5" />
@@ -45,7 +33,10 @@
                         <TextBox HorizontalAlignment="Stretch" Margin="5" />
                     </StackPanel>
                 </Grid>
-                <Button Grid.Column="1" Grid.Row="1" Content="Register" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Back" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+                    <Button Content="Register" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+                </StackPanel>
             </StackPanel>
         </Grid>
     </Grid>
