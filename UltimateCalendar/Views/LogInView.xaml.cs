@@ -31,7 +31,7 @@ namespace UltimateCalendar.Views
         private void TextBlock_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             TBSignUp.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString(OriginalForeground));
-            DataContext = new RegisterView();
+            Application.Current.MainWindow.DataContext = new RegisterView();
         }
 
         private void TextBlock_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
