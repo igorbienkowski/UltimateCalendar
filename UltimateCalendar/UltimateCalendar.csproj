@@ -63,6 +63,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\PasswordDecrypter.cs" />
+    <Compile Include="Models\PasswordEncrypter.cs" />
+    <Compile Include="Models\UserRegistration.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="ViewModels\LogInViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="Views\RegisterView.xaml.cs">
@@ -120,8 +124,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
