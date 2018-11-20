@@ -24,13 +24,13 @@
                         <TextBlock HorizontalAlignment="Right" Text="Repeat Password:" Margin="6" Width="auto"/>
                     </StackPanel>
                     <StackPanel Grid.Column="1" HorizontalAlignment="Stretch" MinWidth="100" MaxWidth="400">
-                        <TextBox HorizontalAlignment="Stretch" Margin="5" />
-                        <TextBox HorizontalAlignment="Stretch" Margin="5" />
-                        <TextBox HorizontalAlignment="Stretch" Margin="5" />
-                        <TextBox HorizontalAlignment="Stretch" Margin="5" />
-                        <TextBox HorizontalAlignment="Stretch" Margin="5" />
-                        <TextBox HorizontalAlignment="Stretch" Margin="5" />
-                        <TextBox HorizontalAlignment="Stretch" Margin="5" />
+                        <TextBox Name="nameTB" HorizontalAlignment="Stretch" Margin="5" />
+                        <TextBox Name="surnameTB" HorizontalAlignment="Stretch" Margin="5" />
+                        <DatePicker Name="dobTB" HorizontalAlignment="Stretch" Margin="5" />
+                        <TextBox Name="emailTB" HorizontalAlignment="Stretch" Margin="5" />
+                        <TextBox Name="email2TB" HorizontalAlignment="Stretch" Margin="5" />
+                        <PasswordBox Name="passwordTB" HorizontalAlignment="Stretch" Margin="5" />
+                        <PasswordBox Name="password2TB" HorizontalAlignment="Stretch" Margin="5" />
                     </StackPanel>
                 </Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
