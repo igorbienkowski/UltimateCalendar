@@ -6,8 +6,22 @@ using System.Threading.Tasks;
 
 namespace UltimateCalendar.Models
 {
-    class User
+    public class User
     {
+        public User()
+        {
+
+        }
+
+        public User(string name, string surname, DateTime dateOfBirth, string email, string password)
+        {
+            this.Name = name;
+            this.Surname = surname;
+            this.DateOfBirth = dateOfBirth;
+            this.Email = email;
+            this.Password = password;
+        }
+
         public string Name { get; set; }
 
         public string Surname { get; set; }

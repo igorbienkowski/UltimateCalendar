@@ -8,11 +8,11 @@ namespace UltimateCalendar.Models
 {
     class UserRegistration
     {
-        public void RegisterUser(string name,string surname, DateTime dateOfBirth, string email, string password)
+        public void RegisterUser(string name,string surname, DateTime dateOfBirth, string email, string password,DBSelection selectDB)
         {
-            DataBaseConnection db = new DataBaseConnection();
             PasswordEncrypter encrypter = new PasswordEncrypter();
-            db.RegisterUserInDB(name, surname, dateOfBirth, email, encrypter.encryptPassword(password));
+            RegisterUserInDb registration = new RegisterUserInDb();
+            registration.RegisterUserInDB(name, surname, dateOfBirth, email, encrypter.encryptPassword(password),selectDB);
         }
     }
 }

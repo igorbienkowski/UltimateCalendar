@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UltimateCalendar.ViewModels;
+using UltimateCalendar.Models;
 
 namespace UltimateCalendar.Views
 {
@@ -21,6 +22,7 @@ namespace UltimateCalendar.Views
     /// </summary>
     public partial class LogInView : UserControl
     {
+        CheckLogInDetailsInDB check = new CheckLogInDetailsInDB();
         public LogInView()
         {
             InitializeComponent();
@@ -29,6 +31,11 @@ namespace UltimateCalendar.Views
         private void TBSignUp_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.DataContext = new RegisterView();
+        }
+
+        private void logInBTN_Click(object sender, RoutedEventArgs e)
+        {
+            check.CheckCredentials(emailTB.Text, passwordTB.Password.ToString());
         }
     }
 }

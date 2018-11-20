@@ -34,6 +34,11 @@
                     </StackPanel>
                 </Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label Content="Please select db" Margin="0,0,5,0"/>
+                    <RadioButton Name="MySqlRB" Content="MySql" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <RadioButton Name="SqlServerRB" Content="SqlServer" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Content="Back" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
                     <Button Content="Register" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
                 </StackPanel>

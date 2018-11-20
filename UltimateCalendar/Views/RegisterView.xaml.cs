@@ -22,7 +22,6 @@ namespace UltimateCalendar.Views
     public partial class RegisterView : UserControl
     {
         UserRegistration registration = new UserRegistration();
-        PasswordEncrypter encrypter = new PasswordEncrypter();
 
         public RegisterView()
         {
@@ -43,7 +42,14 @@ namespace UltimateCalendar.Views
                 }
                 if ((emailTB.Text == email2TB.Text) && (passwordTB.Password.ToString() == password2TB.Password.ToString()))
                 {
-                    registration.RegisterUser(nameTB.Text, surnameTB.Text, dobTB.SelectedDate.Value, emailTB.Text, passwordTB.Password.ToString());
+                    if (MySqlRB.IsChecked.Value)
+                    {
+                        registration.RegisterUser(nameTB.Text, surnameTB.Text, dobTB.SelectedDate.Value, emailTB.Text, passwordTB.Password.ToString(),DBSelection.MySql);
+                    }
+                    else if (SqlServerRB.IsChecked.Value)
+                    {
+                        registration.RegisterUser(nameTB.Text, surnameTB.Text, dobTB.SelectedDate.Value, emailTB.Text, passwordTB.Password.ToString(),DBSelection.SqlServer);
+                    }
                 }
             }
             else

@@ -58,9 +58,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\CheckLogInDetailsInDB.cs" />
     <Compile Include="Models\DataBaseConnection.cs" />
+    <Compile Include="Models\LogIn.cs" />
     <Compile Include="Models\PasswordDecrypter.cs" />
     <Compile Include="Models\PasswordEncrypter.cs" />
+    <Compile Include="Models\RegisterUserInDb.cs" />
     <Compile Include="Models\UserRegistration.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="ViewModels\LogInViewModel.cs" />
@@ -113,6 +116,7 @@
     <None Include="DBConnections.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Compile Include="Models\DBSelection.cs" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
