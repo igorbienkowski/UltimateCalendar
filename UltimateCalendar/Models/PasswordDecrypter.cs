@@ -13,6 +13,7 @@ namespace UltimateCalendar.Models
 
         public string decryptPassword(string passwordToDecrypt)
         {
+            decryptedPassword = "";
             foreach (char @char in passwordToDecrypt)
             {
                 if (alphabet.Contains(@char))

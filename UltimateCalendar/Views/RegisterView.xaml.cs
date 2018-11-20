@@ -43,7 +43,7 @@ namespace UltimateCalendar.Views
                 }
                 if ((emailTB.Text == email2TB.Text) && (passwordTB.Password.ToString() == password2TB.Password.ToString()))
                 {
-                    registration.RegisterUser(nameTB.Text, surnameTB.Text, dobTB.SelectedDate.Value, emailTB.Text, encrypter.encryptPassword(passwordTB.Password.ToString()));
+                    registration.RegisterUser(nameTB.Text, surnameTB.Text, dobTB.SelectedDate.Value, emailTB.Text, passwordTB.Password.ToString());
                 }
             }
             else

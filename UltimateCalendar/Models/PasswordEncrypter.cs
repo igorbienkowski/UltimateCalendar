@@ -13,6 +13,7 @@ namespace UltimateCalendar.Models
         
         public string encryptPassword(string passwordToEncrypt)
         {
+            encryptedPassword = "";
             foreach (char @char in passwordToEncrypt)
             {
                 if (alphabet.Contains(@char))
@@ -22,6 +23,7 @@ namespace UltimateCalendar.Models
                 else encryptedPassword += @char;
             }
             return encryptedPassword;
+
         }
 
         private int plusTen(int number)
