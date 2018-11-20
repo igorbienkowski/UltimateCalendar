@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UltimateCalendar.Models
 {
-    class PasswordDecrypter
+    public class PasswordDecrypter
     {
         private string alphabet = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789";
         private string decryptedPassword = "";
@@ -26,11 +26,12 @@ namespace UltimateCalendar.Models
 
         private int minusTen(int number)
         {
+            int x = number - 10;
             if (number - 10 < 0)
             {
                 return (number - 10) + 62;
             }
-            else return number - 10;
+            else return number -=10;
         }
     }
 }

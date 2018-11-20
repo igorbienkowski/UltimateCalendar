@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace UltimateCalendar.Models
 {
-    class PasswordEncrypter
+    public class PasswordEncrypter
     {
         private string alphabet = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789";
         private string encryptedPassword = "";
-
+        
         public string encryptPassword(string passwordToEncrypt)
         {
             foreach (char @char in passwordToEncrypt)
