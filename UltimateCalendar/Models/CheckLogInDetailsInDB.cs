@@ -23,32 +23,32 @@ namespace UltimateCalendar.Models
                 success = false;
                 MySqlCommand command = new MySqlCommand();
                 command.Connection = connection;
-                command.CommandType = CommandType.Text;
                 command.CommandText = "SELECT * FROM users WHERE Email = @Email AND Password = @Password LIMIT 1;";
                 command.Parameters.AddWithValue("@Email", email);
                 command.Parameters.AddWithValue("@Password", encrypter.encryptPassword(password));
                 try
                 {
                     connection.Open();
-                    using (var reader = command.ExecuteReader())
+                    using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            user.Name = (string)reader["Name"];
-                            user.Surname = (string)reader["Surname"];
+                            user.Name = (string)reader["FirstName"];
+                            user.Surname = (string)reader["LastName"];
                             user.DateOfBirth = (DateTime)reader["DateOfBirth"];
                             user.Email = (string)reader["Email"];
                             user.Password = (string)reader["Password"];
                             success = true;
                         }
                     }
-                    
+                    connection.Close();
+
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error message:" + ex.Message, "ERROR !!!");
                 }
-                
+
             }
 
             if (success)
