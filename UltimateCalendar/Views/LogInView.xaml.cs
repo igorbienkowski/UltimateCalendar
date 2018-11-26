@@ -22,7 +22,7 @@ namespace UltimateCalendar.Views
     /// </summary>
     public partial class LogInView : UserControl
     {
-        CheckLogInDetailsInDB check = new CheckLogInDetailsInDB();
+        LogIn logIn = new LogIn();
         public LogInView()
         {
             InitializeComponent();
@@ -35,7 +35,8 @@ namespace UltimateCalendar.Views
 
         private void logInBTN_Click(object sender, RoutedEventArgs e)
         {
-            check.CheckCredentials(emailTB.Text, passwordTB.Password.ToString());
+            logIn.CredentialsCorrect(emailTB.Text, passwordTB.Password.ToString());
+            Application.Current.MainWindow.DataContext = new MainView();
         }
     }
 }

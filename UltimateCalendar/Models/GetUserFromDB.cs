@@ -9,14 +9,15 @@ using System.Windows;
 
 namespace UltimateCalendar.Models
 {
-    public class CheckLogInDetailsInDB
+    public class GetUserFromDB
     {
-        public User CheckCredentials(string email, string password)
+        private bool success = false;
+
+        public User GetUser(string email, string password)
         {
             DataBaseConnection DBConnection = new DataBaseConnection();
             PasswordEncrypter encrypter = new PasswordEncrypter();
             User user = new User();
-            bool success = false;
 
             using (MySqlConnection connection = DBConnection.GetMySqlConnection())
             {
@@ -50,12 +51,17 @@ namespace UltimateCalendar.Models
                 }
 
             }
-
-            if (success)
-                MessageBox.Show("Success!");
-            else
-                MessageBox.Show("Failure!");
             return user;
+
         }
+
+        public string Message()
+        {
+            if (success)
+                return "Login successfull !";
+            else
+                return "Login failure !";
+        }
+            
     }
 }

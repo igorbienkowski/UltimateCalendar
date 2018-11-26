@@ -9,6 +9,9 @@
     <Grid>
         <Grid>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel.Background>
+                    <SolidColorBrush Color="White" Opacity="0.3"/>
+                </StackPanel.Background>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
