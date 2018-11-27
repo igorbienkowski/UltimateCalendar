@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\GetEventsFromDB.cs" />
     <Compile Include="Models\GetUserFromDB.cs" />
     <Compile Include="Models\DataBaseConnection.cs" />
     <Compile Include="Models\LogIn.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Models\RegisterUserInDb.cs" />
     <Compile Include="Models\UserRegistration.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="ViewModels\Event.cs" />
     <Compile Include="ViewModels\LogInViewModel.cs" />
     <Compile Include="ViewModels\MainViewViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />

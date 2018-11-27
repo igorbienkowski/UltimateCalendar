@@ -4,24 +4,31 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UltimateCalendar.Views"
+             xmlns:ViewModels="clr-namespace:UltimateCalendar.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel Orientation="Horizontal" >
-        <GroupBox Header="GroupBox" HorizontalAlignment="Left" Height="430" Margin="10,10,10,0" VerticalAlignment="Top" Width="auto" >
+    <UserControl.Resources>
+        <ViewModels:MainViewViewModel x:Key="MainViewViewModel" />
+    </UserControl.Resources>
+    <StackPanel Orientation="Horizontal" DataContext="{Binding Source={StaticResource MainViewViewModel}}" >
+        <GroupBox Header="GroupBox" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Width="auto" Height="auto">
             <GroupBox.Background>
                 <SolidColorBrush Color="White" Opacity="0.3"/>
             </GroupBox.Background>
             <StackPanel Width="auto">
-                <Calendar HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top"/>
-                <DatePicker HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,10,10" Width="auto" />
+                <Calendar  SelectedDate="{Binding SelectedDate,Mode=TwoWay}" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top"/>
+                <DatePicker SelectedDate="{Binding SelectedDate,Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,10,10" Width="auto" />
+                <Button Name="AddEventBTN" Width="100" Height="20" Content="Add event" Margin="10,0,10,10" />
             </StackPanel>
         </GroupBox>
-        <GroupBox Header="GroupBox" HorizontalAlignment="Left" Height="430" Margin="0,10,10,10" VerticalAlignment="Top" Width="auto">
+        <GroupBox Header="GroupBox" HorizontalAlignment="Left" Height="auto" Margin="0,10,10,10" VerticalAlignment="Top" Width="auto">
             <GroupBox.Background>
                 <SolidColorBrush Color="White" Opacity="0.3"/>
             </GroupBox.Background>
             <StackPanel>
-            <ListBox HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top" MinWidth="100" Width="300" MaxWidth="500" MinHeight="250" Height="350" MaxHeight="500"/>
+                <ListBox x:Name="EventsListBox" ItemsSource="{Binding EventsForSelectedDate}" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top" MinWidth="100" Width="auto" MaxWidth="500" MinHeight="250" Height="350" MaxHeight="500">
+                  
+                </ListBox>
             </StackPanel>
         </GroupBox>
 
