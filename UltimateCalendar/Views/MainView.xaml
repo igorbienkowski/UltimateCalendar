@@ -5,10 +5,23 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UltimateCalendar.Views"
              xmlns:ViewModels="clr-namespace:UltimateCalendar.ViewModels"
+             
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <ViewModels:MainViewViewModel x:Key="MainViewViewModel" />
+        <DataTemplate x:Key="EventTemplate">
+                <Border BorderThickness="1" Background="LightGray" Width="auto">
+            <StackPanel Orientation="Horizontal">
+                    <Label Content="{Binding Id}"/>
+                    <TextBlock Text="{Binding Description}" TextWrapping="WrapWithOverflow" AllowDrop="True"  MaxWidth="600"/>
+                    <StackPanel>
+                        <Label Content="{Binding Time}"/>
+                        <Label Content="{Binding Type}"/>
+                    </StackPanel>
+                </StackPanel>
+                </Border>
+        </DataTemplate>
     </UserControl.Resources>
     <StackPanel Orientation="Horizontal" DataContext="{Binding Source={StaticResource MainViewViewModel}}" >
         <GroupBox Header="GroupBox" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Width="auto" Height="auto">
@@ -26,7 +39,7 @@
                 <SolidColorBrush Color="White" Opacity="0.3"/>
             </GroupBox.Background>
             <StackPanel>
-                <ListBox x:Name="EventsListBox" ItemsSource="{Binding EventsForSelectedDate}" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top" MinWidth="100" Width="auto" MaxWidth="500" MinHeight="250" Height="350" MaxHeight="500">
+                <ListBox x:Name="EventsListBox" ItemTemplate="{StaticResource EventTemplate}" ItemsSource="{Binding EventsForSelectedDate}" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top" MinWidth="100" Width="auto" MaxWidth="800" MinHeight="250" Height="auto" MaxHeight="700">
                   
                 </ListBox>
             </StackPanel>

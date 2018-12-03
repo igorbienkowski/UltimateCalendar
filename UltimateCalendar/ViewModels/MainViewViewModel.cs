@@ -40,13 +40,15 @@ namespace UltimateCalendar.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void OnSelectedDateChanged()
+        private async Task OnSelectedDateChanged()
         {
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs("SelectedDate"));
-                EventsForSelectedDate = new BindingList<Event>(getEvents.GetAllEventsForDate(SelectedDate));
+                EventsForSelectedDate.Clear();
+                var results = await getEvents.GetAllEventsForDate(SelectedDate);
+                EventsForSelectedDate = new BindingList<Event>(results);
             }
         }
 

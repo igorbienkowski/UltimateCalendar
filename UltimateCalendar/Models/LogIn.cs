@@ -16,7 +16,7 @@ namespace UltimateCalendar.Models
             GetUserFromDB getUser = new GetUserFromDB();
             LoggedInUser = getUser.GetUser(email, password);
             message = getUser.Message();
-            if (LoggedInUser != null)
+            if (getUser.success!=false)
             {
                 return true;
             }

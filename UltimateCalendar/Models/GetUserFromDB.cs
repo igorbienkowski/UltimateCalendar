@@ -11,7 +11,7 @@ namespace UltimateCalendar.Models
 {
     public class GetUserFromDB
     {
-        private bool success = false;
+        public bool success = false;
 
         public User GetUser(string email, string password)
         {

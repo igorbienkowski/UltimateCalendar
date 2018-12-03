@@ -35,8 +35,14 @@ namespace UltimateCalendar.Views
 
         private void logInBTN_Click(object sender, RoutedEventArgs e)
         {
-            logIn.CredentialsCorrect(emailTB.Text, passwordTB.Password.ToString());
-            Application.Current.MainWindow.DataContext = new MainView();
+            if (logIn.CredentialsCorrect(emailTB.Text, passwordTB.Password.ToString()))
+            {
+                Application.Current.MainWindow.DataContext = new MainView();
+            }
+            else
+            {
+                MessageBox.Show("Incorrect login details.","Error !!!");
+            }
         }
     }
 }
