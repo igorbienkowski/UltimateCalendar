@@ -22,10 +22,11 @@ namespace UltimateCalendar.Models
             }
 
             var results = await Task.WhenAll(tasks);
+            //getNext.CloseReader(getNext.reader);
 
             foreach(var item in results)
             {
-                events.Add(item);
+                if(item!=null) events.Add(item);
             }
 
             return events;

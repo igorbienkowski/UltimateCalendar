@@ -15,7 +15,7 @@ namespace UltimateCalendar.Models
         DataBaseConnection DBConnection = new DataBaseConnection();
         MySqlCommand command = new MySqlCommand();
         MySqlConnection connection = new MySqlConnection();
-        MySqlDataReader reader = null;
+        public MySqlDataReader reader = null;
         public bool EndOfData = false;
 
         public GetNextEventFromDB(DateTime date)
@@ -28,32 +28,50 @@ namespace UltimateCalendar.Models
             reader = command.ExecuteReader();
         }
 
+        //public void CloseReader(MySqlDataReader reader)
+        //{
+        //    reader.Close();
+        //    reader.Dispose();
+        //    connection.Close();
+        //    connection.Dispose();
+        //}
+
         public async Task<Event> GetEvent()
         {
-            var result = await Task.Run(() =>
+            try
             {
-                if (reader.Read())
+                var result = await Task.Run(() =>
                 {
-                    EndOfData = false;
-                    Event @event = new Event();
-                    @event.Id = (int)reader["eventId"];
-                    @event.Description = (string)reader["description"];
-                    @event.Time = (DateTime)reader["time"];
-                    @event.Type = (string)reader["type"];
-                    return @event;
-                }
-                else
-                {
-                    reader.Close();
-                    reader.Dispose();
-                    connection.Close();
-                    connection.Dispose();
-                    MessageBox.Show("No more data to retrieve.");
-                    EndOfData = true;
-                    return null;
-                }
-            });
-            return result;
+                    if (reader.Read())
+                    {
+                        EndOfData = false;
+                        Event @event = new Event();
+                        @event.Id = (int)reader["eventId"];
+                        @event.Description = (string)reader["description"];
+                        @event.Time = (DateTime)reader["time"];
+                        @event.Type = (string)reader["type"];
+                        return @event;
+                    }
+                    else
+                    {
+                        EndOfData = true;
+                        reader.Close();
+                        reader.Dispose();
+                        connection.Close();
+                        connection.Dispose();
+                        MessageBox.Show("No more data to retrieve.");
+                        return null;
+                    }
+                });
+                return result;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR !!!");
+                return null;
+            }
+
+
         }
     }
 }
