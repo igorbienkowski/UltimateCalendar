@@ -5,24 +5,24 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UltimateCalendar.Views"
              xmlns:ViewModels="clr-namespace:UltimateCalendar.ViewModels"
-             
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <ViewModels:MainViewViewModel x:Key="MainViewViewModel" />
         <DataTemplate x:Key="EventTemplate">
-                <Border BorderThickness="1" Background="LightGray" Width="auto">
-            <StackPanel Orientation="Horizontal" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <Border BorderThickness="1" Background="LightGray" Width="auto">
+                <StackPanel Orientation="Horizontal" ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <Label Content="{Binding Id}"/>
                     <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-                    <TextBlock Margin="3" Text="{Binding Description}" TextAlignment="Justify" TextWrapping="Wrap" VerticalAlignment="Stretch" AllowDrop="False" MaxHeight="200" MaxWidth="500" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                        <TextBlock Margin="3" Text="{Binding Description}" TextAlignment="Justify" TextWrapping="Wrap" VerticalAlignment="Stretch" AllowDrop="False" 
+                                   MaxHeight="200" MaxWidth="500" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
                     </ScrollViewer>
-                        <StackPanel>
+                    <StackPanel>
                         <Label Content="{Binding Time}"/>
                         <Label Content="{Binding Type}"/>
                     </StackPanel>
                 </StackPanel>
-                </Border>
+            </Border>
         </DataTemplate>
     </UserControl.Resources>
     <StackPanel Orientation="Horizontal" DataContext="{Binding Source={StaticResource MainViewViewModel}}" >
@@ -41,11 +41,10 @@
                 <SolidColorBrush Color="White" Opacity="0.3"/>
             </GroupBox.Background>
             <StackPanel>
-                <ListBox x:Name="EventsListBox" ItemTemplate="{StaticResource EventTemplate}" ItemsSource="{Binding EventsForSelectedDate}" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top" MinWidth="100" Width="auto" MaxWidth="800" MinHeight="250" Height="auto" MaxHeight="700">
-                  
-                </ListBox>
+                <ListBox x:Name="EventsListBox" ItemTemplate="{StaticResource EventTemplate}" ItemsSource="{Binding EventsForSelectedDate}" 
+                         HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top" 
+                         MinWidth="100" Width="auto" MaxWidth="800" MinHeight="250" Height="auto" MaxHeight="700"/>
             </StackPanel>
         </GroupBox>
-
     </StackPanel>
 </UserControl>

@@ -50,7 +50,7 @@ namespace UltimateCalendar.ViewModels
                 var results = await getEvents.GetAllEventsForDate(SelectedDate);
                 EventsForSelectedDate = new BindingList<Event>(results);
             }
-        }
+         }
 
         private void OnPropertyChanged(string propertyName)
         {
