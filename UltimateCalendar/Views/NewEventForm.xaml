@@ -7,27 +7,13 @@
         xmlns:vm="clr-namespace:UltimateCalendar.ViewModels"
         xmlns:tk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="Add new event" Height="230" Width="310">
+        Title="Add new event" Height="235" Width="320" ResizeMode="NoResize">
     <Window.Resources>
-        <vm:NewEventFormViewModel x:Key="NewEventFormViewModel" />
+        <DataTemplate x:Name="AddEventTemplate" DataType="{x:Type vm:AddEventViewModel}">
+            <local:NewEventControl DataContext="{Binding}"/>
+        </DataTemplate>
     </Window.Resources>
-    <StackPanel Margin="5" DataContext="{Binding Source={StaticResource NewEventFormViewModel}}">
-        <StackPanel Orientation="Horizontal">
-            <StackPanel>
-                <Label Content="Select the date:" HorizontalAlignment="Left"/>
-                <DatePicker Margin="5,0,0,0"/>
-            </StackPanel>
-            <StackPanel>
-                <Label Content="Select the time:" HorizontalAlignment="Center" />
-                <tk:TimePicker ShowButtonSpinner="False" Width="80" Height="24" />
-            </StackPanel>
-            <StackPanel>
-                <Label Content="Select the type:" HorizontalAlignment="Right" />
-                <ComboBox x:Name="TypeCB" Width="80" Height="24" SelectedItem="{Binding SelectedEventType}" ItemsSource="{Binding MyEventTypesValues}" />
-            </StackPanel>
-        </StackPanel>
-        <TextBox x:Name="DescriptionTB" Margin="5" Height="100" Width="280" HorizontalAlignment="Left" Text="Please write description for the event here." GotFocus="DescriptionTB_GotFocus" />
-        <Button x:Name="AddEventBTN" HorizontalAlignment="Center" Width="100" Height="24" Content="Add event" Click="AddEventBTN_Click" />
-
-    </StackPanel>
+    <Grid>
+        <ContentControl Content="{Binding}"/>
+    </Grid>
 </Window>

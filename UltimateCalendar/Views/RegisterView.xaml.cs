@@ -60,7 +60,7 @@ namespace UltimateCalendar.Views
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Application.Current.MainWindow.DataContext = new LogInView();
+            Window.GetWindow(this).DataContext = new LogInView();
         }
     }
 }

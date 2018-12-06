@@ -10,20 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using UltimateCalendar.Models;
 
 namespace UltimateCalendar.Views
 {
     /// <summary>
-    /// Interaction logic for NewEventForm.xaml
+    /// Interaction logic for EventAdded.xaml
     /// </summary>
-    public partial class NewEventForm : Window
+    public partial class EventAdded : UserControl
     {
-        public NewEventForm()
+        public EventAdded()
         {
             InitializeComponent();
-            DataContext = new NewEventControl();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).Close();
         }
     }
 }

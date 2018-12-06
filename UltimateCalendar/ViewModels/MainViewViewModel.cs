@@ -26,6 +26,8 @@ namespace UltimateCalendar.ViewModels
 
         private DateTime selectedDate = DateTime.Now;
 
+        static public DateTime _selectedDate;
+
         public DateTime SelectedDate
         {
             get { return selectedDate; }
@@ -33,6 +35,7 @@ namespace UltimateCalendar.ViewModels
             {
                 selectedDate = value;
                 OnSelectedDateChanged();
+                _selectedDate = value;
             }
         }
 

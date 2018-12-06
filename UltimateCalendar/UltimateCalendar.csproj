@@ -76,6 +76,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\AddNewEventToDB.cs" />
     <Compile Include="Models\EventTypes.cs" />
     <Compile Include="Models\GetEventsFromDB.cs" />
     <Compile Include="Models\GetNextEventFromDB.cs" />
@@ -88,12 +89,19 @@
     <Compile Include="Models\UserRegistration.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="ViewModels\AddEventViewModel.cs" />
     <Compile Include="ViewModels\LogInViewModel.cs" />
     <Compile Include="ViewModels\MainViewViewModel.cs" />
     <Compile Include="ViewModels\NewEventFormViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
+    <Compile Include="Views\EventAdded.xaml.cs">
+      <DependentUpon>EventAdded.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewEventControl.xaml.cs">
+      <DependentUpon>NewEventControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NewEventForm.xaml.cs">
       <DependentUpon>NewEventForm.xaml</DependentUpon>
@@ -116,7 +124,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\EventAdded.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewEventControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -13,14 +13,17 @@ namespace UltimateCalendar.Models
 
         }
 
-        public User(string name, string surname, DateTime dateOfBirth, string email, string password)
+        public User(int ID, string name, string surname, DateTime dateOfBirth, string email, string password)
         {
+            this.UserID = ID;
             this.Name = name;
             this.Surname = surname;
             this.DateOfBirth = dateOfBirth;
             this.Email = email;
             this.Password = password;
         }
+
+        public int UserID { get; set; }
 
         public string Name { get; set; }
 

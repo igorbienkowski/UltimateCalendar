@@ -34,6 +34,7 @@ namespace UltimateCalendar.Models
                     {
                         while (reader.Read())
                         {
+                            user.UserID = (int)reader["ID"];
                             user.Name = (string)reader["FirstName"];
                             user.Surname = (string)reader["LastName"];
                             user.DateOfBirth = (DateTime)reader["DateOfBirth"];

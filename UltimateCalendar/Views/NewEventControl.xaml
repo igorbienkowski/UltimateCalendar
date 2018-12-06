@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="UltimateCalendar.Views.NewEventControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UltimateCalendar.Views"
+             xmlns:vm="clr-namespace:UltimateCalendar.ViewModels"
+             xmlns:tk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="235" d:DesignWidth="315"> 
+    <Control.Resources>
+        <vm:NewEventFormViewModel x:Key="NewEventFormViewModel" />
+        <vm:MainViewViewModel x:Key="MainViewViewModel" />
+    </Control.Resources>
+    <StackPanel Margin="5" DataContext="{Binding Source={StaticResource NewEventFormViewModel}}">
+        <StackPanel Orientation="Horizontal" >
+            <StackPanel DataContext="{Binding Source={StaticResource MainViewViewModel}}">
+                <Label Content="Select the date:" HorizontalAlignment="Left"/>
+                <DatePicker x:Name="DateDP" Width="103" SelectedDate="{Binding SelectedDate, Mode=OneWay}" Margin="5,0,0,0"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Select the time:" HorizontalAlignment="Center" />
+                <tk:TimePicker x:Name="TimeTP" DefaultValue="12:00" Value="13:00"  ShowButtonSpinner="False" Width="80" Height="24" />
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Select the type:" HorizontalAlignment="Right" />
+                <ComboBox x:Name="TypeCB" Width="80" Height="24" SelectedItem="{Binding SelectedEventType}" ItemsSource="{Binding MyEventTypesValues}" />
+            </StackPanel>
+        </StackPanel>
+        <TextBox x:Name="DescriptionTB" Margin="5" Height="100" Width="280" HorizontalAlignment="Left" MaxLength="300" Text="Please write description for the event here. (Max 300 characters)" TextWrapping="WrapWithOverflow" GotFocus="DescriptionTB_GotFocus" />
+        <Button x:Name="AddEventBTN" HorizontalAlignment="Center" Width="100" Height="24" Content="Add event" Click="AddEventBTN_Click" />
+
+    </StackPanel>
+</UserControl>

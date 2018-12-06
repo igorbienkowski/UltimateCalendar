@@ -37,7 +37,7 @@ namespace UltimateCalendar.Views
         {
             if (logIn.CredentialsCorrect(emailTB.Text, passwordTB.Password.ToString()))
             {
-                Application.Current.MainWindow.DataContext = new MainView();
+                Window.GetWindow(this).DataContext = new MainView();
             }
             else
             {

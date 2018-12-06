@@ -26,7 +26,6 @@ namespace UltimateCalendar
         {
             InitializeComponent();
             DataContext = new LogInViewModel();
-            //string myConnectionString = ConfigurationManager.ConnectionStrings["localDB"].ConnectionString;
         }
     }
 }
