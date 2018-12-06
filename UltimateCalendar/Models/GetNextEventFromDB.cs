@@ -48,6 +48,8 @@ namespace UltimateCalendar.Models
                         Event @event = new Event();
                         @event.Id = (int)reader["eventId"];
                         @event.Description = (string)reader["description"];
+                        @event.UserId = (int)reader["uderId"];
+                        @event.Date = (DateTime)reader["date"];
                         @event.Time = (DateTime)reader["time"];
                         @event.Type = (string)reader["type"];
                         return @event;

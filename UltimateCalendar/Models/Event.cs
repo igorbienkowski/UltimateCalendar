@@ -13,6 +13,10 @@ namespace UltimateCalendar.ViewModels
 
         public string Description { get; set; }
 
+        public int UserId { get; set; }
+
+        public DateTime Date { get; set; }
+
         public DateTime Time { get; set; }
 
         public string Type { get; set; }

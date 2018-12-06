@@ -8,9 +8,10 @@ namespace UltimateCalendar.Models
 {
     enum EventTypes
     {
-        meeting,
-        call,
-        travel,
-        kids,
+        Meeting,
+        Call,
+        Travel,
+        Kids,
+        Shopping,
     }
 }

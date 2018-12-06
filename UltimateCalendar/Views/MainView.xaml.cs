@@ -24,5 +24,11 @@ namespace UltimateCalendar.Views
         {
             InitializeComponent();
         }
+
+        private void AddEventBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NewEventForm newEvent = new NewEventForm();
+            newEvent.Show();
+        }
     }
 }

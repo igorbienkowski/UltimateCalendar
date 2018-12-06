@@ -23,5 +23,15 @@ namespace UltimateCalendar.Views
         {
             InitializeComponent();
         }
+
+        private void DescriptionTB_GotFocus(object sender, RoutedEventArgs e)
+        {
+            DescriptionTB.Text = "";
+        }
+
+        private void AddEventBTN_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

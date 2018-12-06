@@ -8,7 +8,7 @@ namespace UltimateCalendar.Models
 {
     class LogIn
     {
-        public User LoggedInUser { get; set; }
+        static public User LoggedInUser { get; set; }
         public string message;
 
         public bool CredentialsCorrect(string email, string password)
