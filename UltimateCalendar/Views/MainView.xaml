@@ -32,7 +32,7 @@
             </GroupBox.Background>
             <StackPanel Width="auto">
                 <Calendar  SelectedDate="{Binding SelectedDate,Mode=TwoWay}" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top"/>
-                <DatePicker x:Name="SelectDateDP" x:FieldModifier="public" SelectedDate="{Binding SelectedDate,Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,10,10" Width="auto" />
+                <DatePicker x:Name="SelectDateDP" SelectedDate="{Binding SelectedDate,Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,10,10" Width="auto" />
                 <Button Name="AddEventBTN" Width="100" Height="20" Content="Add event" Margin="10,0,10,10" Click="AddEventBTN_Click" />
             </StackPanel>
         </GroupBox>

@@ -77,8 +77,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\AddNewEventToDB.cs" />
+    <Compile Include="Models\EventBuilder.cs" />
     <Compile Include="Models\EventTypes.cs" />
-    <Compile Include="Models\GetEventsFromDB.cs" />
     <Compile Include="Models\GetNextEventFromDB.cs" />
     <Compile Include="Models\GetUserFromDB.cs" />
     <Compile Include="Models\DataBaseConnection.cs" />

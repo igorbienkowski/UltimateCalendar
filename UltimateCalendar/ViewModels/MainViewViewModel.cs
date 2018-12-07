@@ -4,13 +4,14 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using UltimateCalendar.Models;
 
 namespace UltimateCalendar.ViewModels
 {
     class MainViewViewModel : INotifyPropertyChanged
     {
-        GetEventsFromDB getEvents = new GetEventsFromDB();
+
 
         private BindingList<Event> eventsForSelectedDate = new BindingList<Event>();
 
@@ -20,7 +21,7 @@ namespace UltimateCalendar.ViewModels
             set
             {
                 eventsForSelectedDate = value;
-                OnPropertyChanged("EventsForSelectedDate"); 
+                OnPropertyChanged("EventsForSelectedDate");
             }
         }
 
@@ -50,10 +51,18 @@ namespace UltimateCalendar.ViewModels
             {
                 handler(this, new PropertyChangedEventArgs("SelectedDate"));
                 EventsForSelectedDate.Clear();
-                var results = await getEvents.GetAllEventsForDate(SelectedDate);
-                EventsForSelectedDate = new BindingList<Event>(results);
+                GetNextEventFromDB getEvents = new GetNextEventFromDB();
+                getEvents.SetSQLCommand(SelectedDate);
+                Event @event = null;
+                while (getEvents.endOfData != true)
+                {
+                    @event = await getEvents.GetEvent(SelectedDate);
+                    if(@event!=null)
+                    eventsForSelectedDate.Add(@event);
+                }
+                getEvents.DisposeConnection();
             }
-         }
+        }
 
         private void OnPropertyChanged(string propertyName)
         {
