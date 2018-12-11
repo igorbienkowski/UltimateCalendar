@@ -5,38 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using UltimateCalendar.ViewModels;
 
 namespace UltimateCalendar.Models
 {
-    class AddNewEventToDB
+    class AddNewEventToDB : DBQuery<Event>
     {
-
-        public bool AddEventToDb(string description,int userId,DateTime date,DateTime time,EventTypes type)
+        public bool done = false;
+        public override void ExecuteCommand(Event obj)
         {
-            DataBaseConnection DBConnection = new DataBaseConnection();
-            using (MySqlConnection connection = DBConnection.GetMySqlConnection())
-            {
-                MySqlCommand command = new MySqlCommand();
-                command.Connection = connection;
-                command.CommandText = "INSERT INTO events (description, userId, date, time, type) VALUES (@description, @userId, @date, @time, @type)";
-                command.Parameters.AddWithValue("@description",description);
-                command.Parameters.AddWithValue("@userId",userId);
-                command.Parameters.AddWithValue("@date",date);
-                command.Parameters.AddWithValue("@time",time);
-                command.Parameters.AddWithValue("@type",type.ToString());
-                try
-                {
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                    return true;
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show("Error message:" + ex.Message, "ERROR !!!");
-                    return false;
-                }
-
-            }
+            command.CommandText = "INSERT INTO events (description, userId, date, time, type) VALUES (@description, @userId, @date, @time, @type)";
+            command.Parameters.AddWithValue("@description", obj.Description);
+            command.Parameters.AddWithValue("@userId", obj.UserId);
+            command.Parameters.AddWithValue("@date", obj.Date);
+            command.Parameters.AddWithValue("@time", obj.Time);
+            command.Parameters.AddWithValue("@type", obj.Type.ToString());
+            command.ExecuteNonQuery();
+            done = true;
         }
     }
 }

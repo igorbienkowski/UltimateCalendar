@@ -39,7 +39,9 @@ namespace UltimateCalendar.Views
             AddNewEventToDB addEvent = new AddNewEventToDB();
             if (DateDP.SelectedDate != null && TimeTP.Value != null)
             {
-                if (addEvent.AddEventToDb(DescriptionTB.Text, LogIn.LoggedInUser.UserID, (DateTime)DateDP.SelectedDate, (DateTime)TimeTP.Value, (EventTypes)TypeCB.SelectedItem) == true)
+                Event @event = new Event() { Description = DescriptionTB.Text, UserId = LogIn.LoggedInUser.UserID, Date = (DateTime)DateDP.SelectedDate, Time = (DateTime)TimeTP.Value, Type = TypeCB.SelectedItem.ToString()};
+                addEvent.Execute(@event);
+                if (addEvent.done == true)
                 {
                     Window.GetWindow(this).DataContext = new EventAdded();
                 }
