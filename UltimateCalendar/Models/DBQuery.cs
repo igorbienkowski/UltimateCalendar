@@ -21,7 +21,7 @@ namespace UltimateCalendar.Models
             command.Connection = connection;
         }
 
-        private void Execute(AnyType obj)
+        public void Execute(AnyType obj)
         {
             Open();
 

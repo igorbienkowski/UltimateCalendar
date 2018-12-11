@@ -9,14 +9,14 @@ namespace UltimateCalendar.Models
     class LogIn
     {
         static public User LoggedInUser { get; set; }
-        public string message;
 
         public bool CredentialsCorrect(string email, string password)
         {
-            GetUserFromDB getUser = new GetUserFromDB();
-            LoggedInUser = getUser.GetUser(email, password);
-            message = getUser.Message();
-            if (getUser.success!=false)
+            GetUserFromDB getUser = new GetUserFromDB(password, email);
+            LoggedInUser = new User();
+            getUser.Execute(LoggedInUser);
+            PasswordEncrypter encrypter = new PasswordEncrypter();
+            if (LoggedInUser.Password==encrypter.encryptPassword(password)&&LoggedInUser.Email==email)
             {
                 return true;
             }
