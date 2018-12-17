@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:UltimateCalendar.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid KeyDown="Grid_KeyDown">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel.Background>
                 <SolidColorBrush Color="White" Opacity="0.3"/>

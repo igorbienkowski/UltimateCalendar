@@ -23,7 +23,7 @@ SET @@SESSION.SQL_LOG_BIN= 0;
 -- GTID state at the beginning of the backup 
 --
 
-SET @@GLOBAL.GTID_PURGED='edfdfa58-d769-11e8-b6c3-42010aa6000d:1-3727210';
+SET @@GLOBAL.GTID_PURGED='edfdfa58-d769-11e8-b6c3-42010aa6000d:1-4642780';
 
 --
 -- Table structure for table `events`
@@ -33,14 +33,15 @@ DROP TABLE IF EXISTS `events`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `events` (
-  `eventId` int(11) NOT NULL,
+  `eventId` int(11) NOT NULL AUTO_INCREMENT,
   `description` varchar(300) DEFAULT NULL,
   `userId` int(11) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `time` timestamp NULL DEFAULT NULL,
   `type` varchar(45) DEFAULT NULL,
+  `usersPool` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`eventId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,4 +73,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-06 17:51:38
+-- Dump completed on 2018-12-17  9:20:25

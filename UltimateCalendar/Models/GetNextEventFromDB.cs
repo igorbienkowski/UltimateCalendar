@@ -38,19 +38,19 @@ namespace UltimateCalendar.Models
 
         public async Task<Event> GetEvent(DateTime date)
         {
-            Event @event = null;
+            Event eventToReturn = null;
             await Task.Run(() =>
             {
                 if (reader.ReadAsync().Result)
                 {
-                    @event = builder.BuildEvent(reader);
+                    eventToReturn = builder.BuildEvent(reader);
                 }
                 else
                 {
                     endOfData = true;
                 }
             });
-            return @event;
+            return eventToReturn;
         }
 
         public void DisposeConnection()

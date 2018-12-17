@@ -52,13 +52,13 @@ namespace UltimateCalendar.ViewModels
                 handler(this, new PropertyChangedEventArgs("SelectedDate"));
                 EventsForSelectedDate.Clear();
                 GetNextEventFromDB getEvents = new GetNextEventFromDB();
-                getEvents.SetSQLCommand(SelectedDate);
-                Event @event = null;
+                getEvents.SetSQLCommand(selectedDate);
+                Event eventToDisplay = null;
                 while (getEvents.endOfData != true)
                 {
-                    @event = await getEvents.GetEvent(SelectedDate);
-                    if(@event!=null)
-                    eventsForSelectedDate.Add(@event);
+                    eventToDisplay = await getEvents.GetEvent(selectedDate);
+                    if(eventToDisplay!=null)
+                    eventsForSelectedDate.Add(eventToDisplay);
                 }
                 getEvents.DisposeConnection();
             }

@@ -24,9 +24,9 @@ namespace UltimateCalendar.Views
     {
         public NewEventControl()
         {
-            InitializeComponent();
             TimeTP.Value = DateTime.Now;
             DateDP.SelectedDate = MainViewViewModel._selectedDate;
+            InitializeComponent();
         }
 
         private void DescriptionTB_GotFocus(object sender, RoutedEventArgs e)

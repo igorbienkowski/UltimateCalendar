@@ -44,5 +44,20 @@ namespace UltimateCalendar.Views
                 MessageBox.Show("Incorrect login details.","Error !!!");
             }
         }
+
+        private void Grid_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                if (logIn.CredentialsCorrect(emailTB.Text, passwordTB.Password.ToString()))
+                {
+                    Window.GetWindow(this).DataContext = new MainView();
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect login details.", "Error !!!");
+                }
+            }
+        }
     }
 }
