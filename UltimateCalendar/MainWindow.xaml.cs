@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Configuration;
 using UltimateCalendar.ViewModels;
+using UltimateCalendar.Models;
+using UltimateCalendar.UI;
 
 namespace UltimateCalendar
 {
@@ -24,8 +26,12 @@ namespace UltimateCalendar
     {
         public MainWindow()
         {
-            InitializeComponent();
-            DataContext = new LogInViewModel();
+            //InitializeComponent();
+            //IDataHandler dataHandler = new SQLDataHandler();
+            //DataContext = new LogInViewModel(dataHandler);
+            LogInForm form = new LogInForm(IDataHandler dataHandler);
+            form.ShowDialog();
+
         }
     }
 }

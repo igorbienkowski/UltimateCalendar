@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace UltimateCalendar.Models
 {
-    public abstract class DBQuery<AnyType>
+    abstract class DBQuery<AnyType>
     {
         protected MySqlConnection connection = null;
         protected MySqlCommand command = null;

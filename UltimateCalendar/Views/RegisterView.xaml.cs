@@ -22,10 +22,12 @@ namespace UltimateCalendar.Views
     public partial class RegisterView : UserControl
     {
         UserRegistration registration = new UserRegistration();
+        private IDataHandler dataHandler;
 
-        public RegisterView()
+        public RegisterView(IDataHandler dataHandler)
         {
             InitializeComponent();
+            this.dataHandler = dataHandler;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -60,7 +62,7 @@ namespace UltimateCalendar.Views
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Window.GetWindow(this).DataContext = new LogInView();
+            Window.GetWindow(this).DataContext = new LogInView(dataHandler);
         }
     }
 }

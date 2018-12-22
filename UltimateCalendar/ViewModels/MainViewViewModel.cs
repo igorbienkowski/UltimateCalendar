@@ -11,7 +11,7 @@ namespace UltimateCalendar.ViewModels
 {
     class MainViewViewModel : INotifyPropertyChanged
     {
-
+        public User LoggedInUser;
 
         private BindingList<Event> eventsForSelectedDate = new BindingList<Event>();
 
@@ -27,8 +27,6 @@ namespace UltimateCalendar.ViewModels
 
         private DateTime selectedDate = DateTime.Now;
 
-        static public DateTime _selectedDate;
-
         public DateTime SelectedDate
         {
             get { return selectedDate; }
@@ -36,13 +34,13 @@ namespace UltimateCalendar.ViewModels
             {
                 selectedDate = value;
                 OnSelectedDateChanged();
-                _selectedDate = value;
             }
         }
 
         public Event EventToAdd { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
 
         private async Task OnSelectedDateChanged()
         {
@@ -51,7 +49,7 @@ namespace UltimateCalendar.ViewModels
             {
                 handler(this, new PropertyChangedEventArgs("SelectedDate"));
                 EventsForSelectedDate.Clear();
-                GetNextEventFromDB getEvents = new GetNextEventFromDB();
+                GetNextEventFromDB getEvents = new GetNextEventFromDB(LoggedInUser);
                 getEvents.SetSQLCommand(selectedDate);
                 Event eventToDisplay = null;
                 while (getEvents.endOfData != true)

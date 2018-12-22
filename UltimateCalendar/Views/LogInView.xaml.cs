@@ -22,42 +22,49 @@ namespace UltimateCalendar.Views
     /// </summary>
     public partial class LogInView : UserControl
     {
-        LogIn logIn = new LogIn();
+        private IDataHandler dataHandler;
+
         public LogInView()
         {
             InitializeComponent();
         }
 
+        public LogInView(IDataHandler dataHandler)
+        {
+            InitializeComponent();
+            this.dataHandler = dataHandler;
+        }
+
         private void TBSignUp_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.MainWindow.DataContext = new RegisterView();
+            Application.Current.MainWindow.DataContext = new RegisterView(dataHandler);
         }
 
         private void logInBTN_Click(object sender, RoutedEventArgs e)
         {
-            if (logIn.CredentialsCorrect(emailTB.Text, passwordTB.Password.ToString()))
-            {
-                Window.GetWindow(this).DataContext = new MainView();
-            }
-            else
-            {
-                MessageBox.Show("Incorrect login details.","Error !!!");
-            }
+            performLogIn();
         }
 
         private void Grid_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.Key == Key.Enter)
             {
-                if (logIn.CredentialsCorrect(emailTB.Text, passwordTB.Password.ToString()))
-                {
-                    Window.GetWindow(this).DataContext = new MainView();
-                }
-                else
-                {
-                    MessageBox.Show("Incorrect login details.", "Error !!!");
-                }
+                performLogIn();
             }
         }
+
+        private void performLogIn()
+        {
+            User loggedInUser;
+            if (dataHandler.CredentialsCheck(emailTB.Text, passwordTB.Password.ToString(), out loggedInUser))
+            {
+                Window.GetWindow(this).DataContext = new MainView(dataHandler, loggedInUser);
+            }
+            else
+            {
+                MessageBox.Show("Incorrect login details.", "Error !!!");
+            }
+        }
+
     }
 }

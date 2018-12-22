@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UltimateCalendar.Models;
 
 namespace UltimateCalendar.Views
 {
@@ -20,14 +21,18 @@ namespace UltimateCalendar.Views
     /// </summary>
     public partial class MainView : UserControl
     {
-        public MainView()
+        private IDataHandler dataHandler;
+        private User loggedInUser;
+        public MainView(IDataHandler dataHandler, User loggedInUser)
         {
             InitializeComponent();
+            this.dataHandler = dataHandler;
+            this.loggedInUser = loggedInUser;
         }
 
         private void AddEventBTN_Click(object sender, RoutedEventArgs e)
         {
-            NewEventForm newEvent = new NewEventForm();
+            NewEventForm newEvent = new NewEventForm(SelectDateDP.SelectedDate.Value,dataHandler,loggedInUser.UserID);
             newEvent.Show();
         }
     }

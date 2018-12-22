@@ -20,10 +20,10 @@ namespace UltimateCalendar.Views
     /// </summary>
     public partial class NewEventForm : Window
     {
-        public NewEventForm()
+        public NewEventForm(DateTime defaultDate,IDataHandler dataHandler,int userId)
         {
             InitializeComponent();
-            DataContext = new NewEventControl();
+            DataContext = new NewEventControl(defaultDate, dataHandler, userId);
         }
     }
 }

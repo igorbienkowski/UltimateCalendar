@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace UltimateCalendar.Models
 {
-    public class GetUserFromDB : DBQuery<User>
+    class GetUserFromDB : DBQuery<User>
     {
         string password;
         string email;

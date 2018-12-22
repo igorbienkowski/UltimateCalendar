@@ -40,6 +40,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -83,13 +85,21 @@
     <Compile Include="Models\GetNextEventFromDB.cs" />
     <Compile Include="Models\GetUserFromDB.cs" />
     <Compile Include="Models\DataBaseConnection.cs" />
+    <Compile Include="Models\IDataHandler.cs" />
     <Compile Include="Models\LogIn.cs" />
     <Compile Include="Models\PasswordDecrypter.cs" />
     <Compile Include="Models\PasswordEncrypter.cs" />
     <Compile Include="Models\RegisterUserInDb.cs" />
+    <Compile Include="Models\SQLDataHandler.cs" />
     <Compile Include="Models\UserRegistration.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="UI\LogInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\LogInForm.Designer.cs">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\AddEventViewModel.cs" />
     <Compile Include="ViewModels\LogInViewModel.cs" />
     <Compile Include="ViewModels\MainViewViewModel.cs" />
@@ -167,6 +177,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\LogInForm.resx">
+      <DependentUpon>LogInForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DBConnections.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

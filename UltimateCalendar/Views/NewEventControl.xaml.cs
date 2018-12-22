@@ -22,12 +22,18 @@ namespace UltimateCalendar.Views
     /// </summary>
     public partial class NewEventControl : UserControl
     {
-        public NewEventControl()
+        private int userId;
+
+        public NewEventControl(DateTime defaultDate,IDataHandler dataHandler, int userId)
         {
-            TimeTP.Value = DateTime.Now;
-            DateDP.SelectedDate = MainViewViewModel._selectedDate;
             InitializeComponent();
+            this.userId = userId;
+            TimeTP.Value = DateTime.Now;
+            DateDP.SelectedDate = defaultDate ;
+            this.dataHandler = dataHandler;
         }
+
+        private IDataHandler dataHandler;
 
         private void DescriptionTB_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -36,24 +42,8 @@ namespace UltimateCalendar.Views
 
         private void AddEventBTN_Click(object sender, RoutedEventArgs e)
         {
-            AddNewEventToDB addEvent = new AddNewEventToDB();
-            if (DateDP.SelectedDate != null && TimeTP.Value != null)
-            {
-                Event @event = new Event() { Description = DescriptionTB.Text, UserId = LogIn.LoggedInUser.UserID, Date = (DateTime)DateDP.SelectedDate, Time = (DateTime)TimeTP.Value, Type = TypeCB.SelectedItem.ToString()};
-                addEvent.Execute(@event);
-                if (addEvent.done == true)
-                {
-                    Window.GetWindow(this).DataContext = new EventAdded();
-                }
-                else
-                {
-                    MessageBox.Show("Something went wrong! Try again.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please fill all fields.");
-            }
+            Event @event = new Event() { Description = DescriptionTB.Text, UserId = userId, Date = (DateTime)DateDP.SelectedDate, Time = (DateTime)TimeTP.Value, Type = TypeCB.SelectedItem.ToString()};
+            dataHandler.AddEvent(@event);
         }
     }
 }

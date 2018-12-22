@@ -18,10 +18,12 @@ namespace UltimateCalendar.Models
         MySqlConnection connection = new MySqlConnection();
         MySqlDataReader reader = null;
         EventBuilder builder = null;
+        User loggedInUser;
         public bool endOfData = false;
 
-        public GetNextEventFromDB()
+        public GetNextEventFromDB(User loggedInUser)
         {
+            this.loggedInUser = loggedInUser;
             builder = new EventBuilder();
             connection = DBConnection.GetMySqlConnection();
             command.Connection = connection;
@@ -31,7 +33,7 @@ namespace UltimateCalendar.Models
         public void SetSQLCommand(DateTime date)
         {
             command.Parameters.AddWithValue("@date", date);
-            command.Parameters.AddWithValue("@userId", LogIn.LoggedInUser.UserID);
+            command.Parameters.AddWithValue("@userId", loggedInUser.UserID);
             connection.OpenAsync();
             reader = command.ExecuteReader();
         }
