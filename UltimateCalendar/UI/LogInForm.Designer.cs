@@ -4,12 +4,6 @@ namespace UltimateCalendar.UI
 {
     partial class LogInForm
     {
-        private IDataHandler dataHandler;
-        public LogInForm(IDataHandler dataHandler )
-        {
-            this.dataHandler = dataHandler;
-        }
-
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -36,24 +30,25 @@ namespace UltimateCalendar.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.emailTB = new System.Windows.Forms.TextBox();
+            this.passwordTB = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // emailTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(142, 195);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.emailTB.Location = new System.Drawing.Point(142, 195);
+            this.emailTB.Name = "emailTB";
+            this.emailTB.Size = new System.Drawing.Size(100, 20);
+            this.emailTB.TabIndex = 0;
+            this.emailTB.TextChanged += new System.EventHandler(this.emailTB_TextChanged);
             // 
-            // textBox2
+            // passwordTB
             // 
-            this.textBox2.Location = new System.Drawing.Point(282, 195);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.passwordTB.Location = new System.Drawing.Point(282, 195);
+            this.passwordTB.Name = "passwordTB";
+            this.passwordTB.Size = new System.Drawing.Size(100, 20);
+            this.passwordTB.TabIndex = 1;
             // 
             // button1
             // 
@@ -69,10 +64,10 @@ namespace UltimateCalendar.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(495, 406);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.passwordTB);
+            this.Controls.Add(this.emailTB);
             this.Name = "LogInForm";
             this.Text = "LogIn";
             this.ResumeLayout(false);
@@ -82,8 +77,8 @@ namespace UltimateCalendar.UI
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox emailTB;
+        private System.Windows.Forms.TextBox passwordTB;
         private System.Windows.Forms.Button button1;
     }
 }

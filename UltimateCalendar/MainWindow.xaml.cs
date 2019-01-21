@@ -26,12 +26,11 @@ namespace UltimateCalendar
     {
         public MainWindow()
         {
-            //InitializeComponent();
+            InitializeComponent();
             //IDataHandler dataHandler = new SQLDataHandler();
             //DataContext = new LogInViewModel(dataHandler);
-            LogInForm form = new LogInForm(IDataHandler dataHandler);
+            LogInForm form = new LogInForm(new SQLDataHandler());
             form.ShowDialog();
-
         }
     }
 }
